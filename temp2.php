@@ -7,18 +7,18 @@
 
 <!----------------------------------- HEADER START ----------------------------------->
 <?php
-    ob_start(); # Quick fix to 'Warning: Cannot modify header information - headers already sent by...'
-    
-    # sets path of application folder
-    $protocol  = empty($_SERVER['HTTPS']) ? 'http' : 'https';
-    $port      = $_SERVER['SERVER_PORT'];
-    $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $port == 443) ? '' : ":$port";
-    $domain    = $_SERVER['SERVER_NAME'];
-
-    define('app_path', "${protocol}://${domain}${disp_port}" . '/ocashop/');
-
-//    require($_SERVER['DOCUMENT_ROOT'] . '/ocashop/config.php');
-    require($_SERVER['DOCUMENT_ROOT'] . '/ocashop/function.php');
+//    ob_start(); # Quick fix to 'Warning: Cannot modify header information - headers already sent by...'
+//    
+//    # sets path of application folder
+//    $protocol  = empty($_SERVER['HTTPS']) ? 'http' : 'https';
+//    $port      = $_SERVER['SERVER_PORT'];
+//    $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $port == 443) ? '' : ":$port";
+//    $domain    = $_SERVER['SERVER_NAME'];
+//
+//    define('app_path', "${protocol}://${domain}${disp_port}" . '/casppr/');
+//
+//    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/config.php');
+//    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/function.php');
 ?>
 <!DOCTYPE html> 
 
@@ -44,17 +44,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-     <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        
-           <li><a href="badges.html"><i class="material-icons right">shopping_cart</i>Cart</a></li>
-        <li><a href="badges.html">Login</a></li>
-        <li><a href="collapsible.html">Signup</a></li>
-      </ul>
-    </div>
-  </nav>
+    <div class="">
     
     
         <!----------------------------------- HEADER END ---------------------->
@@ -206,7 +196,7 @@
       </div>
     </div>
   </footer>
-
+</div>
       
     
      <!--Import jQuery before materialize.js-->

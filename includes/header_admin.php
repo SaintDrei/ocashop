@@ -7,11 +7,11 @@
     $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $port == 443) ? '' : ":$port";
     $domain    = $_SERVER['SERVER_NAME'];
 
-    define('app_path', "${protocol}://${domain}${disp_port}" . '/casppr/');
+    define('app_path', "${protocol}://${domain}${disp_port}" . '/ocashop/');
 
-    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/config.php');
-    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/function.php');
-    $logout = $_SERVER['DOCUMENT_ROOT'] . 'casppr/includes/logout.php';
+    require($_SERVER['DOCUMENT_ROOT'] . '/ocashop/config.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/ocashop/function.php');
+    $logout = $_SERVER['DOCUMENT_ROOT'] . 'ocashop/includes/logout.php';
     $userName = "John Doe";
     $userType = "Administrator";
 
