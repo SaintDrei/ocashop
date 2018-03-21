@@ -2,7 +2,7 @@
 <?php 
 	$page_title = "Dashboard";
 //	include_once('../includes/header_admin.php');
-    
+    include_once('../includes/header.php');
 ?>
 
 <!----------------------------------- HEADER START ----------------------------------->
@@ -19,7 +19,7 @@
 //
 //    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/config.php');
 //    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/function.php');
-?>
+?> 
 <!DOCTYPE html> 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
