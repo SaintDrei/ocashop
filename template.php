@@ -1,6 +1,6 @@
 
 <?php 
-<<<<<<< HEAD
+
 	$page_title = "Dashboard";
 //	include_once('../includes/header_admin.php');
     
@@ -410,8 +410,6 @@
 
       
     
-=======
->>>>>>> 2fb8841a48b47c688bdfb17526e9e5f4fb485f84
      <!--Import jQuery before materialize.js-->
         <!--import use echo app path to pertain to home directory because if not, the document will point to current document where footer is included instead of footer's directory-->
 
