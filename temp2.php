@@ -1,4 +1,4 @@
-
+                     
 <?php 
 	$page_title = "Dashboard";
 //	include_once('../includes/header_admin.php'); 
@@ -33,7 +33,7 @@
     <link rel="icon" href="../content/images/OCA/fav.png">
      <!-- Stylesheets -->
        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link rel="stylesheet" href="<?php echo app_path ?>materialize/css/custom.css">
        
         <!-- SCRIPTS -->
@@ -201,33 +201,8 @@
       </ul>
     </div>
   </main>
-<!---------------------------------------- FOOTER START ----------------------------->
-        <footer class="yellow darken-2 page-footer">
- 
-    <div class="footer-copyright">
-      <div class="container blue-grey-text text-darken-4">
-        <span>Made By <a class="blue-grey-text text-darken-4" style='font-weight: bold;' href="">TEAM QUADRA</a></span>
-      </div>
-    </div>
-  </footer>
-
-      
     
-     <!--Import jQuery before materialize.js-->
-        <!--import use echo app path to pertain to home directory because if not, the document will point to current document where footer is included instead of footer's directory-->
-
-        <script type="text/javascript" src='<?php echo app_path ?>includes/jquery-3.2.1.min.js'></script>
-        <script type="text/javascript" src='<?php echo app_path ?>materialize/js/materialize.min.js'></script>
-        <script type="text/javascript" src='<?php echo app_path ?>includes/script.js'></script> 
-     
-    
-       
-
-</body>
-</html> 
-<!------------------------------------------ FOOTER END ---------------------------->
-  
     <?php
     
-//	include_once('../includes/footclean.php');
+	include_once('/includes/footer.php');
     ?>
