@@ -56,15 +56,17 @@
       </ul>
     </div>
   </nav>
-=======
-//	$page_title = "Dashboard";
-//	include_once('../includes/header_admin.php');
-//    
+
+<!--
+	$page_title = "Dashboard";
+	include_once('../includes/header_admin.php');
+-->
+    
 ?>
 
 <!----------------------------------- HEADER START ----------------------------------->
 <?php
-    ob_start(); # Quick fix to 'Warning: Cannot modify header information - headers already sent by...'
+//    ob_start(); # Quick fix to 'Warning: Cannot modify header information - headers already sent by...'
     
     # sets path of application folder
     $protocol  = empty($_SERVER['HTTPS']) ? 'http' : 'https';

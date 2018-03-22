@@ -1,7 +1,7 @@
 <?php
     ob_start(); # Quick fix to 'Warning: Cannot modify header information - headers already sent by...'
     
-    # sets path of application folder
+    # sets path of application folder 
     $protocol  = empty($_SERVER['HTTPS']) ? 'http' : 'https';
     $port      = $_SERVER['SERVER_PORT'];
     $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $port == 443) ? '' : ":$port";

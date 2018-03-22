@@ -44,10 +44,24 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-    <div class="">
+    
     
     
         <!----------------------------------- HEADER END ---------------------->
+    
+     <nav>
+    <div class="nav-wrapper yellow darken-2">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        
+           <li><a href="badges.html"><i class="material-icons right">shopping_cart</i>Cart</a></li>
+        <li><a href="badges.html">Login</a></li>
+        <li><a href="collapsible.html">Signup</a></li>
+      </ul>
+    </div>
+  </nav>
+    
+    
   <main>
       <div class="row">
       
@@ -195,8 +209,8 @@
         <span>Made By <a class="white-text" style='font-weight: bold;' href="">TEAM QUADRA</a></span>
       </div>
     </div>
-  </footer>
-</div>
+  </foot.er>
+
       
     
      <!--Import jQuery before materialize.js-->
