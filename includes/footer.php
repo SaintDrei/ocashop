@@ -2,7 +2,7 @@
  
     <div class="footer-copyright">
       <div class="container">
-        <span>Made By <a class="white-text" style='font-weight: bold;' href="">TEAM QUADRA</a></span>
+        <span>Made By <a class="white-text" style='font-weight: bold;' href="">MISHAEL KILOS</a></span> 
       </div>
     </div>
   </footer>

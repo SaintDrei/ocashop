@@ -1,21 +1,21 @@
 
 <?php 
 	$page_title = "Dashboard";
-//	include_once('../includes/header_admin.php');
-    include_once('../includes/header.php');
+//	include_once('../includes/header_admin.php'); 
+//    include_once('../includes/header.php');
 ?>
 
 <!----------------------------------- HEADER START ----------------------------------->
 <?php
 //    ob_start(); # Quick fix to 'Warning: Cannot modify header information - headers already sent by...'
 //    
-//    # sets path of application folder
-//    $protocol  = empty($_SERVER['HTTPS']) ? 'http' : 'https';
-//    $port      = $_SERVER['SERVER_PORT'];
-//    $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $port == 443) ? '' : ":$port";
-//    $domain    = $_SERVER['SERVER_NAME'];
-//
-//    define('app_path', "${protocol}://${domain}${disp_port}" . '/casppr/');
+    # sets path of application folder
+    $protocol  = empty($_SERVER['HTTPS']) ? 'http' : 'https';
+    $port      = $_SERVER['SERVER_PORT'];
+    $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $port == 443) ? '' : ":$port";
+    $domain    = $_SERVER['SERVER_NAME'];
+
+    define('app_path', "${protocol}://${domain}${disp_port}" . '/ocashop/');
 //
 //    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/config.php');
 //    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/function.php');
@@ -174,13 +174,13 @@
          
         </ul>
     <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
-      <a class="btn-floating btn-large pink waves-effect waves-light">
+      <a class="btn-floating btn-large blue-grey darken-4 waves-effect waves-light">
         <i class="large material-icons">add</i>
       </a>
 
       <ul>
         <li>
-          <a class="btn-floating red"><i class="material-icons medium">note_add</i></a>
+          <a class="btn-floating black"><i class="material-icons medium">note_add</i></a>
           <a href="" class="btn-floating fab-tip">Add a note</a>
         </li>
 
@@ -188,7 +188,7 @@
     </div>
   </main>
 <!---------------------------------------- FOOTER START ----------------------------->
-        <footer class="blue page-footer">
+        <footer class="yellow darken-2 page-footer">
  
     <div class="footer-copyright">
       <div class="container">
@@ -204,8 +204,10 @@
 
         <script type="text/javascript" src='<?php echo app_path ?>includes/jquery-3.2.1.min.js'></script>
         <script type="text/javascript" src='<?php echo app_path ?>materialize/js/materialize.min.js'></script>
-        <script type="text/javascript" src='<?php echo app_path ?>includes/script.js'></script>
+        <script type="text/javascript" src='<?php echo app_path ?>includes/script.js'></script> 
      
+    
+       
 
 </body>
 </html> 
