@@ -51,12 +51,12 @@
     
      <nav>
     <div class="nav-wrapper yellow darken-2">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <a href="#" class="brand-logo  blue-grey-text text-darken-4">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down ">
         
-           <li><a href="badges.html"><i class="material-icons right">shopping_cart</i>Cart</a></li>
-        <li><a href="badges.html">Login</a></li>
-        <li><a href="collapsible.html">Signup</a></li>
+           <li><a href="badges.html" class="blue-grey-text text-darken-4"><i class="material-icons right">shopping_cart</i>Cart</a></li>
+        <li><a href="badges.html" class="blue-grey-text text-darken-4">Login</a></li>
+        <li><a href="collapsible.html" class="blue-grey-text text-darken-4">Signup</a></li>
       </ul>
     </div>
   </nav>
@@ -194,7 +194,7 @@
 
       <ul>
         <li>
-          <a class="btn-floating black"><i class="material-icons medium">note_add</i></a>
+          <a class="btn-floating"><i class="material-icons medium">note_add</i></a>
           <a href="" class="btn-floating fab-tip">Add a note</a>
         </li>
 
@@ -205,11 +205,11 @@
         <footer class="yellow darken-2 page-footer">
  
     <div class="footer-copyright">
-      <div class="container">
-        <span>Made By <a class="white-text" style='font-weight: bold;' href="">TEAM QUADRA</a></span>
+      <div class="container blue-grey-text text-darken-4">
+        <span>Made By <a class="blue-grey-text text-darken-4" style='font-weight: bold;' href="">TEAM QUADRA</a></span>
       </div>
     </div>
-  </foot.er>
+  </footer>
 
       
     
