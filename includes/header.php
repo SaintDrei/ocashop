@@ -8,8 +8,8 @@
     $domain    = $_SERVER['SERVER_NAME'];
 
     define('app_path', "${protocol}://${domain}${disp_port}" . '/ocashop/');
-//
-//    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/config.php');
+
+    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/config.php');
 //    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/function.php');
 ?> 
 <!DOCTYPE html> 
