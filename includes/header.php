@@ -9,8 +9,8 @@
 
     define('app_path', "${protocol}://${domain}${disp_port}" . '/ocashop/');
 
-    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/config.php');
-//    require($_SERVER['DOCUMENT_ROOT'] . '/casppr/function.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/ocashop/config.php');
+//    require($_SERVER['DOCUMENT_ROOT'] . '/ocashop/function.php');
 ?> 
 <!DOCTYPE html> 
 
@@ -40,12 +40,12 @@
        
      <nav>
     <div class="nav-wrapper yellow darken-2">
-      <a href="#" class="brand-logo  blue-grey-text text-darken-4">Logo</a>
+      <a href="#" class="brand-logo  blue-grey-text text-darken-4"><img src="../content/images/logo-c.png" height="55em" style="margin-left:0.4em; margin-top:0.2em;"></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down ">
         
            <li><a href="shop_cart.php" class="blue-grey-text text-darken-4"><i class="material-icons right">shopping_cart</i>Cart</a></li>
-        <li><a href="badges.html" class="blue-grey-text text-darken-4">Login</a></li>
-        <li><a href="collapsible.html" class="blue-grey-text text-darken-4">Signup</a></li>
+        <li><a href="../login/" class="blue-grey-text text-darken-4">Login</a></li>
+        <li><a href="../register/" class="blue-grey-text text-darken-4">Signup</a></li>
       </ul>
     </div>
   </nav>

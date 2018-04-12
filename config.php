@@ -1,6 +1,6 @@
 <?php
 	$server = "127.0.0.1";
-	$database = "ocadb";
+	$database = "ocashop";
 	$username = "andreim1";
 	$password = "3xclamatioN!";
 
