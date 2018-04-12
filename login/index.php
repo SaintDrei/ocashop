@@ -13,7 +13,7 @@
             </script>";}} else{
         if (isset($_POST['username']))
         {
-           session_destroy();
+          
             session_start();
 
             $username = mysqli_real_escape_string($con, $_POST['username']);

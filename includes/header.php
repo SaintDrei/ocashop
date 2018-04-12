@@ -26,7 +26,7 @@
      <!-- Stylesheets -->
        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <!--	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
-    <link rel="stylesheet" href="../materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="<?php echo app_path ?>/materialize/css/materialize.min.css">
     
         <link rel="stylesheet" href="<?php echo app_path ?>materialize/css/custom.css">
        
@@ -47,15 +47,15 @@
        
      <nav>
     <div class="nav-wrapper yellow darken-2">
-      <a href="#" class="brand-logo  blue-grey-text text-darken-4"><img src="../content/images/logo-c.png" height="55em" style="margin-left:0.4em; margin-top:0.2em;"></a>
-         <ul id="cart1" class="dropdown-content lime-text" style="margin-top:65px;">
+      <a href="#" class="brand-logo  blue-grey-text text-darken-4"><img src="<?php echo app_path ?>/content/images/logo-c.png" height="55em" style="margin-left:0.4em; margin-top:0.2em;"></a>
+         <ul id="cart1" class="dropdown-content lime-text" style="width:26vw;">
           <li><a href="#!" class="lime-text text-darken-2">You have no items in your cart</a></li>
           <li class="divider"></li>
           <li class="lime"><a href="#!" class="white-text   ">Checkout<i class="material-icons right">send</i></a></li>
         </ul>
-      <ul id="nav-mobile" class="dropdown-button right hide-on-med-and-down " data-activates='cart1'>
+      <ul id="nav-mobile" class="right hide-on-med-and-down " >
         
-           <li><a href="" class="blue-grey-text text-darken-4"><i class="material-icons right">shopping_cart</i>Cart</a></li>
+          
           
           <?php if (isset($_SESSION['userid'])){
     echo '    <li><a href="/logout.php" class="blue-grey-text text-darken-4">Logout</a></li>';
@@ -63,7 +63,7 @@
     echo '<li><a href="../login/" class="blue-grey-text text-darken-4">Login</a></li>
         <li><a href="../register/" class="blue-grey-text text-darken-4">Signup</a></li>';
 } ?>
-        
+         <li><a href="" class="dropdown-button  blue-grey-text text-darken-4" data-activates='cart1'><i class="material-icons right">shopping_cart</i>Cart</a></li>
       </ul>
     </div>
   </nav>
