@@ -12,8 +12,11 @@ include_once('../includes/header.php');
   <main>
       <div class="col l10 m10 s10">
           <div class="row">
-            <div class="col l6 push-l3">
+            <div class="col l8 push-l2">
                     <div class="row">
+                        <div class="col l4">
+                        Books
+                        </div>
                         <div class="col l4">
                         Books
                         </div>
