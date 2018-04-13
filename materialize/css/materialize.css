@@ -6,7 +6,16 @@
 .materialize-red {
   background-color: #e51c23 !important;
 }
-
+.toast.alert {
+    background-color: #e53935 ;
+}body {
+     display: flex;
+     min-height: 100vh;
+     flex-direction: column;
+ }
+ main {
+     flex: 1 0 auto;
+ }
 .materialize-red-text {
   color: #e51c23 !important;
 }
@@ -5011,7 +5020,8 @@ small {
 .tabs.tabs-transparent .tab a,
 .tabs.tabs-transparent .tab.disabled a,
 .tabs.tabs-transparent .tab.disabled a:hover {
-  color: rgba(255, 255, 255, 0.7);
+  color: #263238;
+/*      rgba(255, 255, 255, 0.7);*/
 }
 
 .tabs.tabs-transparent .tab a:hover,
@@ -5048,7 +5058,7 @@ small {
 }
 
 .tabs .tab a {
-  color: rgba(238, 110, 115, 0.7);
+  color: rgba(38, 50, 56, 0.72);
   display: block;
   width: 100%;
   height: 100%;
@@ -5062,12 +5072,13 @@ small {
 
 .tabs .tab a:hover, .tabs .tab a.active {
   background-color: transparent;
-  color: #ee6e73;
+  color: #263238;
 }
 
 .tabs .tab.disabled a,
 .tabs .tab.disabled a:hover {
-  color: rgba(238, 110, 115, 0.7);
+  color: rgba(38, 50, 56, 0.51);
+/*      rgba(238, 110, 115, 0.7);*/
   cursor: default;
 }
 
@@ -5075,7 +5086,7 @@ small {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: #f6b2b5;
+  background-color: #263238;
   will-change: left, right;
 }
 

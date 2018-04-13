@@ -26,10 +26,8 @@
      <!-- Stylesheets -->
        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <!--	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
-    <link rel="stylesheet" href="<?php echo app_path ?>/materialize/css/materialize.min.css">
-    
-        <link rel="stylesheet" href="<?php echo app_path ?>materialize/css/custom.css">
-       
+    <link rel="stylesheet" href="<?php echo app_path ?>/materialize/css/materialize.css">
+    <link rel="stylesheet" href="<?php echo app_path ?>materialize/css/custom.css">
     <link rel="icon" href="<?php echo app_path ?>/content/images/fav.png">
         <!-- SCRIPTS -->
         
@@ -43,8 +41,10 @@
      
     
 </head>
-<body>
-       
+<body style="display: flex;
+    min-height: 100vh;
+    flex-direction: column;">
+       <div class="navbar-fixed">
      <nav class="extended">
     <div class="nav-wrapper yellow darken-2">
       <a href="#" class="brand-logo  blue-grey-text text-darken-4"><img src="<?php echo app_path ?>/content/images/logo-c.png" height="55em" style="margin-left:0.4em; margin-top:0.2em;"></a>
@@ -66,17 +66,25 @@
          <li><a href="" class="dropdown-button  blue-grey-text text-darken-4" data-activates='cart1'><i class="material-icons right">shopping_cart</i>Cart</a></li>
       </ul>
     </div>
-    <div class="nav-content yellow darken-2">
-      <ul class="tabs tabs-transparent">
-        <li class="tab"><a href="#test1">Test 1</a></li>
-        <li class="tab"><a class="active" href="#test2">Test 2</a></li>
-        <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
-        <li class="tab"><a href="#test4">Test 4</a></li>
+    <div class="nav-content hide-on-med-and-down">
+      <ul class="tabs tabs yellow lighten-4" >
+        <li class="tab"  style="margin-left:25vw;"><a href="#test1" class="active blue-grey-text text-darken-4">All</a></li>
+        <li class="tab"><a class="blue-grey-text text-darken-4" href="#test1">Apparel</a></li>
+        <li class="tab"><a class="blue-grey-text text-darken-4" href="#test2">Books</a></li>
+        <li class="tab"><a class="blue-grey-text text-darken-4" href="#test3">Digital</a></li>
+        <li class="tab"><a class="blue-grey-text text-darken-4" href="#test4">Portraits</a></li>
+          <li class="tab"> <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons"  style="bottom:10px;">close</i>
+        </div>
+      </form></li>
       </ul>
+        
     </div>
   </nav>
+</div>
+
     
-  <div id="test1" class="col s12">Test 1</div>
-  <div id="test2" class="col s12">Test 2</div>
-  <div id="test3" class="col s12">Test 3</div>
-  <div id="test4" class="col s12">Test 4</div>
+    
