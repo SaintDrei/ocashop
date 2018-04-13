@@ -11,6 +11,7 @@
 
     require($_SERVER['DOCUMENT_ROOT'] . '/ocashop/config.php');
 //    require($_SERVER['DOCUMENT_ROOT'] . '/ocashop/function.php');
+session_start();
 ?> 
 <!DOCTYPE html> 
 
@@ -60,25 +61,21 @@
           <?php if (isset($_SESSION['userid'])){
     echo '    <li><a href="/logout.php" class="blue-grey-text text-darken-4">Logout</a></li>';
 } else {
-    echo '<li><a href="../login/" class="blue-grey-text text-darken-4">Login</a></li>
-        <li><a href="../register/" class="blue-grey-text text-darken-4">Signup</a></li>';
+    echo '<li><a href="'.app_path.'login/" class="blue-grey-text text-darken-4">Login</a></li>
+        <li><a href="'.app_path.'register/" class="blue-grey-text text-darken-4">Signup</a></li>';
 } ?>
          <li><a href="" class="dropdown-button  blue-grey-text text-darken-4" data-activates='cart1'><i class="material-icons right">shopping_cart</i>Cart</a></li>
       </ul>
     </div>
-    <div class="nav-content hide-on-med-and-down">
+    <div class="nav-content hide-on-med-and-down  z-depth-3">
       <ul class="tabs tabs yellow lighten-4" >
-        <li class="tab"  style="margin-left:25vw;"><a href="#test1" class="active blue-grey-text text-darken-4">All</a></li>
+        <li class="tab"  style="margin-left:30vw;"><a href="#test1" class="active blue-grey-text text-darken-4">All</a></li>
         <li class="tab"><a class="blue-grey-text text-darken-4" href="#test1">Apparel</a></li>
         <li class="tab"><a class="blue-grey-text text-darken-4" href="#test2">Books</a></li>
         <li class="tab"><a class="blue-grey-text text-darken-4" href="#test3">Digital</a></li>
         <li class="tab"><a class="blue-grey-text text-darken-4" href="#test4">Portraits</a></li>
           <li class="tab"> <form>
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons"  style="bottom:10px;">close</i>
-        </div>
+       
       </form></li>
       </ul>
         

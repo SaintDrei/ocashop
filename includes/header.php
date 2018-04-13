@@ -1,4 +1,5 @@
 <?php
+session_start();
 //    ob_start(); # Quick fix to 'Warning: Cannot modify header information - headers already sent by...'
 //    
     # sets path of application folder
