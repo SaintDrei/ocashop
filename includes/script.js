@@ -8,6 +8,7 @@ $(document).ready(function(){
         constrainWidth:false,
         alignment:'right',
         belowOrigin:true
-    });    
+    });
+    $('.tooltipped').tooltip({delay: 50});
     
 });
