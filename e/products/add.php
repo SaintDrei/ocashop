@@ -1,32 +1,10 @@
 <?php
-	$page_title = "Edit Product";
+	$page_title = "Add Product";
 
 	include_once('../../includes/header_admin.php');
     $welcome = "";
-    if (isset($_REQUEST['pcode'])){
-        $pcode=$_REQUEST['pcode'];
-        $sql_product = "SELECT product_cat, product_collection, product_code, product_name, product_desc, product_img_name, price from products where product_code='$pcode'";
-        $result_product = $con->query($sql_product);
-//        $result_product = $con->query($sql_product) or die(mysql_error($con));
-        
-        while ($row = mysqli_fetch_array($result_product))
-        {
-             $pcat = $row['product_cat'];
-            $pcollection = $row['product_collection'];
-            $pcode = $row['product_code'];
-            $pname = $row['product_name'];
-            $pdesc = $row['product_desc'];
-            $pimg = $row['product_img_name'];
-            $dimg = app_path.'/content/images/products/'.$pimg;
-            $price = $row['price'];
-                
-           
-        }
-        
-    } else {
-        header('location:index.php');
-    }
-    if (isset($_POST['update'])){
+
+    if (isset($_POST['add'])){
         
         $pcat = mysqli_real_escape_string($con, $_POST['category']);
         $pcollection = mysqli_real_escape_string($con, $_POST['collection']);
@@ -53,15 +31,11 @@
         echo 'please choose a file';
     }
 }
-        if(empty($tmp_name)){
-             $sql_add = "UPDATE products set product_cat='$pcat', product_code='$pcode', product_name='$pname', product_desc='$pdesc', price='$price' WHERE product_code='$pcode'";
-        } else{
-             $sql_add = "UPDATE products set product_cat='$pcat', product_code='$pcode', product_name='$pname', product_desc='$pdesc', product_img_name='$name', price='$price' WHERE product_code='$pcode'";
-        }
-     
-      $con->query($sql_add) or die(mysqli_error($con));
+      
+    $sql_add = "INSERT INTO products VALUES ('', '$pcat', '$pcollection', '$pcode', '$pname', '$pdesc', '$name', '$price', 'yes')";
+    $con->query($sql_add) or die(mysqli_error($con));
         
-        header('location: details.php?pcode='.$pcode);
+//    header('location: details.php?pcode='.$upload);
     }
 
 ?>
@@ -104,18 +78,18 @@ $(document).ready(function(){
     <div class="row" style="padding-left:300px;">
         <div class="col l10 push-l1">
             <div class="card">
-                <form action="details.php" method="post" enctype="multipart/form-data">
+                <form action="add.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col l4">
                             <div class="card">
                                  <div class="card-image" style="max-height:80%;" >
-                            <img id="image" src="<?php echo $dimg;?>" onerror="this.src='<?php echo app_path; ?>content/images/Placeholder.png';">
+                            <img id="image" src="content/images/products/res/cap1.jpg" onerror="this.src='<?php echo app_path; ?>content/images/Placeholder.png';">
                             
                         </div>
                         <div class="card-content">
-                            <span class="card-title" id="pnout"><?php echo $pname;?></span>
-                            <span id="priceout">P<?php echo $price;?></span>
-                            <p id="descout"><?php echo $pdesc;?></p>
+                            <span class="card-title" id="pnout">Product Name</span>
+                            <span id="priceout">P100.00</span>
+                            <p id="descout">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                         </div>
                                 
                             </div>
@@ -124,13 +98,13 @@ $(document).ready(function(){
                             <div class="row">
                                 <div class="col l6">
                                  <div class="input-field">
-                          <input id="pname" name="pname" type="text" class="validate" value="<?php echo $pname;?>">
+                          <input id="pname" name="pname" type="text" class="validate">
                           <label for="pname">Product Name</label>
                         </div>
                                 </div>
                                 <div class="col l6">
                                 <div class="input-field">
-                          <input id="code" name="code" type="text" class="validate" value="<?php echo $pcode;?>">
+                          <input id="code" name="code" type="text" class="validate">
                           <label for="code">Product Code</label>
                         </div>
                                 </div>
@@ -138,7 +112,7 @@ $(document).ready(function(){
                             <div class="row">
                              <div class="col l6">
                              <div class="input-field">
-                          <input id="price" name="price" type="text" class="validate" value="<?php echo $price;?>">
+                          <input id="price" name="price" type="text" class="validate">
                           <label for="price">Price</label>
                         </div>
                         </div>
@@ -158,13 +132,13 @@ $(document).ready(function(){
                             <div class="row">
                                 <div class="col l6">
                                     <div class="input-field col s12">
-                                      <textarea id="desc" name="desc" class="materialize-textarea" value=""><?php echo $pdesc;?>    </textarea>
+                                      <textarea id="desc" name="desc" class="materialize-textarea"></textarea>
                                       <label for="desc">Description</label>
                                     </div>
                                 </div>
                                 <div class="col l6">
                                      <div class="input-field">
-                                  <input id="collection" name="collection" type="text" class="validate" value="<?php echo $pcollection;?>">
+                                  <input id="collection" name="collection" type="text" class="validate">
                                   <label for="collection">Collection</label>
                                 </div>
                                 </div>
@@ -173,16 +147,16 @@ $(document).ready(function(){
                             <div class="file-field input-field">
                                   <div class="btn">
                                     <span>Image</span>
-                                    <input name="image" type="file" id="files" value="<?php echo $pimg;?>">
+                                    <input name="image" type="file" id="files">
                                   </div>
                                   <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" >
+                                    <input class="file-path validate" type="text">
                                   </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col l6"></div>
-                                <div class="col l6"> <button class="btn col l12 green darken-1 waves-effect waves-light m6 push-m1 s10" type="submit" name="update" tabindex="2">Update
+                                <div class="col l6"> <button class="btn col l12 green darken-1 waves-effect waves-light m6 push-m1 s10" type="submit" name="add" tabindex="2">Add
                                 
                               </button></div>
                             </div>

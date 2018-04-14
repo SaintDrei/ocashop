@@ -61,7 +61,7 @@
           <div class="navbar-fixed">
      <nav class="top-nav">
     <div class="nav-wrapper grey darken-2">
-      <a href="#" class="brand-logo  blue-grey-text text-darken-4"><img src="<?php echo app_path ?>content/images/logo-c.png" height="55em" style="margin-left:0.4em; margin-top:0.2em; filter:invert(1);"></a>
+      <a href="<?php echo app_path;?>" class="brand-logo  blue-grey-text text-darken-4"><img src="<?php echo app_path ?>content/images/logo-c.png" height="55em" style="margin-left:0.4em; margin-top:0.2em; filter:invert(1);"></a>
        
       <ul id="nav-mobile" class="right hide-on-med-and-down white-text">
         
@@ -99,7 +99,7 @@
     <li><a class="subheader"><i class="material-icons">shopping_cart</i>Product Management</a></li>
     <li><a class="waves-effect" href="<?php echo app_path; ?>index.php">View Shop</a></li>
     <li><a class="waves-effect" href="<?php echo app_path; ?>e/products/">View Products</a></li>
-    <li><a class="waves-effect" href="<?php echo app_path; ?>e/products/add/">Add Product</a></li>
+    <li><a class="waves-effect" href="<?php echo app_path; ?>e/products/add.php/">Add Product</a></li>
   </ul>
 
 

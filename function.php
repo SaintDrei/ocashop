@@ -1,33 +1,4 @@
 <?php
-	# displays total number of records from a chosen table
-	function countData($table)
-	{
-		include 'config.php';
-		$sql_count = "SELECT COUNT(*) AS total FROM $table
-			WHERE Status!='Archived'";
-		$result = $con->query($sql_count);
-
-		$data = mysqli_fetch_assoc($result);
-		return $data['total'];
-	}
-
-	# hides elements if customer is not logged in
-	function toggleUser()
-	{
-		if (!isset($_SESSION['userid']))
-		{
-			echo 'style="display:none;"';
-		}
-	}
-
-	# hides elements if customer is logged in
-	function toggleGuest()
-	{
-		if (isset($_SESSION['userid']))
-		{
-			echo 'style="display:none;"';
-		}
-	}
 
 	# gets path of application folder
 	function getAppFolder()
@@ -37,55 +8,17 @@
 	    $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $port == 443) ? '' : ":$port";
 	    $domain    = $_SERVER['SERVER_NAME'];
 
-	    return "${protocol}://${domain}${disp_port}" . "/myshop/";
+	    return "${protocol}://${domain}${disp_port}" . "/ocashop/";
 	}
 
-	# checks if user has logged in; redirects to login page if not logged in
-	function validateAccess()
-	{
-		#session_start();
-		if (!isset($_SESSION['userid']))
-		{
-			$admin_login = getAppFolder() . 'admin/login.php';
-			$lastURL = $_SERVER['REQUEST_URI'];
-			header('location: ' . $admin_login .'?url=' . $lastURL);
-		}
-	}
 
-	# sends a message to a chosen email address
-	function sendEmail($email, $subject, $message)
-	{
-		require('phpmailer/PHPMailerAutoload.php');
-		$mail = new PHPMailer;
 
-		if(!$mail->validateAddress($email))
-		{
-			echo 'Invalid Email Address';
-			exit;
-		}
-
-		$mail = new PHPMailer(); // create a new object
-		$mail->IsSMTP(); // enable SMTP
-		$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-		$mail->SMTPAuth = true; // authentication enabled
-		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-		$mail->Host = "smtp.gmail.com";
-		$mail->Port = 465; // or 587
-		$mail->IsHTML(true);
-		$mail->Username = "benilde.web.development@gmail.com";
-		$mail->Password = "Awebdevelopmentisfun";
-		$mail->SetFrom("benilde.web.development@gmail.com");
-		$mail->FromName = "The Administrator";
-		$mail->Subject = $subject;
-		$mail->Body = $message;
-		$mail->AddAddress($email);
-		$mail->Send();
-	}
+	
 
 	function getPrice($con, $pid)
 	{
 		$sql_price = "SELECT price FROM products
-			WHERE productID=$pid";
+			WHERE product_code='$pid'";
 		$result_price = $con->query($sql_price);
 		while ($row = mysqli_fetch_array($result_price))
 		{
@@ -98,7 +31,7 @@
 	function isExisting($con, $pid)
 	{
 		$sql_check = "SELECT detailID FROM orderdetails
-			WHERE orderNo=0 AND userID=1 AND productID=$pid";
+			WHERE orderNo=0 AND userID=1 AND pcode='$pid'";
 		$result_check = $con->query($sql_check) or die(mysqli_error($con));
 		/*if (mysqli_num_rows($result_check) > 0)
 		{
@@ -133,7 +66,7 @@
 			SET quantity = quantity + $qty,
 			amount = amount + $amount
 			WHERE orderNo=0 AND userID=$uid AND
-			productID=$pid";
+			pcode=$pid";
 
 		if (isExisting($con, $pid))
 		{
@@ -144,4 +77,6 @@
 			$result_insert = $con->query($sql_insert) or die(mysqli_error($con));
 		}
 	}
+
+
 ?>

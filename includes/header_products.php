@@ -1,17 +1,49 @@
 <?php
 //    ob_start(); # Quick fix to 'Warning: Cannot modify header information - headers already sent by...'
 //    
+
+
     # sets path of application folder
     $protocol  = empty($_SERVER['HTTPS']) ? 'http' : 'https';
     $port      = $_SERVER['SERVER_PORT'];
     $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $port == 443) ? '' : ":$port";
     $domain    = $_SERVER['SERVER_NAME'];
 
-    define('app_path', "${protocol}://${domain}${disp_port}" . '/ocashop/');
+    define('app_path', $_SERVER['DOCUMENT_ROOT'] . '/');
+//    define('app_path', "${protocol}://${domain}${disp_port}" . '/ocashop/');
 
-    require($_SERVER['DOCUMENT_ROOT'] . '/ocashop/config.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/config.php');
 //    require($_SERVER['DOCUMENT_ROOT'] . '/ocashop/function.php');
 session_start();
+if(isset($_SESSION['userid'])){
+    $userid = $_SESSION['userid'];    
+}
+
+    $sql_cart = "SELECT pcode, qty from orders WHERE userid='$userid'";
+    $cart_result = $con->query($sql_cart);
+    $cart_list = '';
+$list = '';  $total = 0;
+    if (mysqli_num_rows($cart_result) >0){
+       
+    while ($row = mysqli_fetch_array($cart_result)){
+            $pcode = $row['pcode'];
+            $qty = $row['qty'];
+            $sql_prod = "SELECT product_name, price from products where product_code='$pcode'";
+            $result_prod = $con->query($sql_prod);
+       
+            while($row = mysqli_fetch_array($result_prod)){
+                $pname = $row['product_name'];
+                $price = $row['price'];
+                $net = $qty * $price;
+                $total = $total + $net;
+                $list .= "<li><a class='lime-text text-darken-2'><span class='left'>$pname</span><span class='right'>$net</span></a></li>";    
+            }
+            
+            
+    }
+    } else {
+        $list =  '<li><a href="#!" class="lime-text text-darken-2">You have no items in your cart</a></li>';
+    }
 ?> 
 <!DOCTYPE html> 
 
@@ -48,11 +80,12 @@ session_start();
        <div class="navbar-fixed">
      <nav class="extended">
     <div class="nav-wrapper yellow darken-2">
-      <a href="#" class="brand-logo  blue-grey-text text-darken-4"><img src="<?php echo app_path ?>/content/images/logo-c.png" height="55em" style="margin-left:0.4em; margin-top:0.2em;"></a>
+      <a href="<?php echo app_path;?>" class="brand-logo  blue-grey-text text-darken-4"><img src="<?php echo app_path ?>/content/images/logo-c.png" height="55em" style="margin-left:0.4em; margin-top:0.2em;"></a>
          <ul id="cart1" class="dropdown-content lime-text" style="width:26vw;">
-          <li><a href="#!" class="lime-text text-darken-2">You have no items in your cart</a></li>
+             <?php echo $list ?>
           <li class="divider"></li>
-          <li class="lime"><a href="#!" class="white-text   ">Checkout<i class="material-icons right">send</i></a></li>
+          <li><span class="left lime-text text-darken-2">Total </span><span class="right lime-text text-darken-2"><?php echo $total; ?></span></li>
+          <li class="lime"><a href="cart.php" class="white-text   ">Checkout<i class="material-icons right">send</i></a></li>
         </ul>
       <ul id="nav-mobile" class="right hide-on-med-and-down " >
         
@@ -69,11 +102,12 @@ session_start();
     </div>
     <div class="nav-content hide-on-med-and-down  z-depth-3">
       <ul class="tabs tabs yellow lighten-4" >
-        <li class="tab"  style="margin-left:30vw;"><a href="#test1" class="active blue-grey-text text-darken-4">All</a></li>
-        <li class="tab"><a class="blue-grey-text text-darken-4" href="#test1">Apparel</a></li>
-        <li class="tab"><a class="blue-grey-text text-darken-4" href="#test2">Books</a></li>
-        <li class="tab"><a class="blue-grey-text text-darken-4" href="#test3">Digital</a></li>
-        <li class="tab"><a class="blue-grey-text text-darken-4" href="#test4">Portraits</a></li>
+        <li class="tab"  style="margin-left:30vw;"><a href="index.php" onclick="location.href='index.php'" class="active blue-grey-text text-darken-4">All</a></li>
+        <li class="tab"><a class="blue-grey-text text-darken-4" href="index.php?cat='Apparel'" onclick="location.href='index.php?cat=Apparel'">Apparel</a></li>
+        <li class="tab"><a class="blue-grey-text text-darken-4" href="index.php?cat='Apparel'" onclick="location.href='index.php?cat=Books'">Books</a></li>
+        <li class="tab"><a class="blue-grey-text text-darken-4" href="index.php?cat='Apparel'"onclick="location.href='index.php?cat=Digital'">Digital</a></li>
+        <li class="tab"><a class="blue-grey-text text-darken-4" href="index.php?cat='Apparel'"onclick="location.href='index.php?cat=Portraits'">Portraits</a></li>
+        <li class="tab"><a class="blue-grey-text text-darken-4" href="index.php?cat='Apparel'"onclick="location.href='index.php?cat=Souvenirs'">Souvenirs</a></li>
           <li class="tab"> <form>
        
       </form></li>

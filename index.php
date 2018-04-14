@@ -1,7 +1,44 @@
 <?php 
-
 $page_title = 'turtle';
-include_once('/includes/header_products.php'); ?>
+include_once('/includes/header_products.php'); 
+
+    
+    
+if(isset($_REQUEST['cat'])){
+    $cat = $_REQUEST['cat'];
+    $sql_products = "SELECT product_cat, product_collection, product_code, product_name, product_desc, product_img_name, price from products where product_cat='$cat' AND product_available='yes'";}
+else{
+    $sql_products = "SELECT product_cat, product_collection, product_code, product_name, product_desc, product_img_name, price from products  WHERE product_available='yes'";}
+     $result_product = $con->query($sql_products);
+        $list_product='';
+        while ($row = mysqli_fetch_array($result_product))
+        {
+            $pcat = $row['product_cat'];
+            $pcollection = $row['product_collection'];
+            $pcode = $row['product_code'];
+            $pname = $row['product_name'];
+            $pdesc = $row['product_desc'];
+            $img = app_path.'content/images/products/'.$row['product_img_name'];
+            $price = $row['price'];
+            
+            $list_product.="
+             <div class='col l4' ><div class='card'>
+                                 <div class='card-image' style='max-height:80%;' >
+                            <img id='image' src='$img'>
+                              <a class='btn-floating halfway-fab waves-effect waves-light green lighten-2' href='addtocart.php?pcode=$pcode'><i class='material-icons'>add</i></a>
+                        </div>
+                        <div class='card-content'>
+                            <span class='card-title'>$pname</span>
+                            <span>P$price</span>
+                            <p>$pdesc</p>
+                        </div>
+                                
+                            </div></div>";
+           
+        
+}
+
+?>
 
 <main>
 <div class="aside">
@@ -22,52 +59,9 @@ include_once('/includes/header_products.php'); ?>
     
           <div class="col" style="column-break-inside:avoid;">
     
-      <div class="col l4" style="height:400px;">
-                    <div class="card">
-                        <div class="card-image" style="max-height:80%;">
-                            <img src="content/images/products/res/cap1.jpg" >
-                            <a class="btn-floating halfway-fab waves-effect waves-light green lighten-2"><i class="material-icons">add</i></a>
-                            <a class="btn-floating halfway-fab waves-effect waves-light cyan lighten-2" style="margin-right:45px;"><i class="material-icons">remove_red_eye</i></a>
-                        </div>
-                        <div class="card-content">
-                            
-                            <span class="card-title">Hamilton Cap</span>
-                            <span>P100.00</span>
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                
-                    </div>
-        </div>  
-      <div class="col l4" >
-                    <div class="card">
-                        <div class="card-image" style="max-height:80%;">
-                            <img src="content/images/products/res/card.jpg" >
-                            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title">Hamilton Cap</span>
-                            <span>P100.00</span>
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                
-                    </div>
-        </div>  
+      
               
-      <div class="col l4 s12 m6">
-          
-      <div class="card">
-        <div class="card-image" style="max-height:70%;">
-          <img src="content/images/products/res/card2.jpg">
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-        </div>
-        <div class="card-content">
-            <span class="card-title">Hamilton Cap</span>
-                            <span>P100.00</span>
-          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-        </div>
-      </div>
-    </div>
+     <?php echo $list_product;?>
               
     </div>
     </div>

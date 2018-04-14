@@ -58,3 +58,7 @@ html {
   column-break-inside: avoid;
 
 }  
+
+.dashwrap{
+  padding-left: 300px;   
+}
